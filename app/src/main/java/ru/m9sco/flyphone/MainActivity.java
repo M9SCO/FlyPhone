@@ -60,26 +60,5 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickStartStopButton(View view){
 
-        if (!AisService.isRunning(getApplicationContext())) {
-            if (Settings.Apply(this)) {
-                int fd = DeviceManager.openDevice();
-                if (fd != -1) {
-                    Intent serviceIntent = new Intent(MainActivity.this, AisService.class);
-                    serviceIntent.putExtra("source", DeviceManager.getDeviceCode());
-                    serviceIntent.putExtra("USB", fd);
-                    serviceIntent.putExtra("CGFWIDE", Settings.getCGFSetting(this));
-                    serviceIntent.putExtra("MODELTYPE", Settings.getModelType(this));
-                    serviceIntent.putExtra("FPDS", Settings.getFixedPointDownsampling(this) ? 1 : 0);
-                    serviceIntent.putExtra("USB", fd);
-                    ContextCompat.startForegroundService(MainActivity.this, serviceIntent);
-                } else
-                    Toast.makeText(MainActivity.this, "Cannot open USB device. Give permission first and try again.", Toast.LENGTH_LONG).show();
-            } else
-                Toast.makeText(MainActivity.this, "Invalid setting", Toast.LENGTH_LONG).show();
-
-        } else {
-            AisCatcherJava.forceStop();
-        }
-
     }
 }
