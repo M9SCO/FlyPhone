@@ -1,256 +1,241 @@
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="first_preferencescreen"
+<?xml version="1.0" encoding="utf-8"?>
 
-    >
-
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
-        android:key="system_category"
-        android:title="System">
-
-        <SwitchPreferenceCompat
-            android:key="sFORCEDARK"
-            android:summary="Force app theme to Dark Mode"
-            android:defaultValue="False"
-            android:title="Force Dark Mode"/>
-
+        android:key="@string/pref_signalProcessing_category"
+        android:title="@string/pref_signalProcessing_category_title">
+        <ListPreference
+            android:key="@string/pref_sourceType"
+            android:title="@string/pref_sourceType_title"
+            android:dialogTitle="@string/pref_sourceType_title"
+            android:entries="@array/pref_sourceType_entries"
+            android:entryValues="@array/pref_sourceType_values"
+            android:defaultValue="@string/pref_sourceType_default" />
+        <PreferenceScreen
+            android:key="@string/pref_sourceSettings"
+            android:title="@string/pref_sourceSettings_title"
+            android:persistent="false">
+            <PreferenceCategory
+                android:key="@string/pref_filesource_category"
+                android:title="@string/pref_filesource_category_title">
+                <EditTextPreference
+                    android:key="@string/pref_filesource_frequency"
+                    android:title="@string/pref_filesource_frequency_title"
+                    android:dialogTitle="@string/pref_filesource_frequency_title"
+                    android:defaultValue="@string/pref_filesource_frequency_default"
+                    android:inputType="number"/>
+                <EditTextPreference
+                    android:key="@string/pref_filesource_sampleRate"
+                    android:title="@string/pref_filesource_sampleRate_title"
+                    android:dialogTitle="@string/pref_filesource_sampleRate_title"
+                    android:defaultValue="@string/pref_filesource_sampleRate_default"
+                    android:inputType="number"/>
+                <EditTextPreference
+                    android:key="@string/pref_filesource_file"
+                    android:title="@string/pref_filesource_file_title"
+                    android:defaultValue="@string/pref_filesource_file_default" />
+                <ListPreference
+                    android:key="@string/pref_filesource_format"
+                    android:title="@string/pref_filesource_format_title"
+                    android:dialogTitle="@string/pref_filesource_format_title"
+                    android:entries="@array/pref_filesource_format_entries"
+                    android:entryValues="@array/pref_filesource_format_values"
+                    android:defaultValue="@string/pref_filesource_format_default" />
+                <SwitchPreference
+                    android:key="@string/pref_filesource_repeat"
+                    android:title="@string/pref_filesource_repeat_title"
+                    android:summaryOn="@string/pref_filesource_repeat_summ_on"
+                    android:summaryOff="@string/pref_filesource_repeat_summ_off"
+                    android:defaultValue="false" />
+            </PreferenceCategory>
+            <PreferenceCategory
+                android:key="@string/pref_hackrf_category"
+                android:title="@string/pref_hackrf_category_title">
+                <SwitchPreference
+                    android:key="@string/pref_hackrf_amplifier"
+                    android:title="@string/pref_hackrf_amplifier_title"
+                    android:summaryOn="@string/pref_hackrf_amplifier_summ_on"
+                    android:summaryOff="@string/pref_hackrf_amplifier_summ_off"
+                    android:defaultValue="false" />
+                <SwitchPreference
+                    android:key="@string/pref_hackrf_antennaPower"
+                    android:title="@string/pref_hackrf_antennaPower_title"
+                    android:summaryOn="@string/pref_hackrf_antennaPower_summ_on"
+                    android:summaryOff="@string/pref_hackrf_antennaPower_summ_off"
+                    android:defaultValue="false" />
+                <EditTextPreference
+                    android:key="@string/pref_hackrf_frequencyOffset"
+                    android:title="@string/pref_hackrf_frequencyOffset_title"
+                    android:dialogTitle="@string/pref_hackrf_frequencyOffset_title"
+                    android:defaultValue="0"
+                    android:inputType="number|numberSigned"/>
+            </PreferenceCategory>
+            <PreferenceCategory
+                android:key="@string/pref_rtlsdr_category"
+                android:title="@string/pref_rtlsdr_category_title">
+                <SwitchPreference
+                    android:key="@string/pref_rtlsdr_externalServer"
+                    android:title="@string/pref_rtlsdr_externalServer_title"
+                    android:summaryOn="@string/pref_rtlsdr_externalServer_summ_on"
+                    android:summaryOff="@string/pref_rtlsdr_externalServer_summ_off"
+                    android:defaultValue="false" />
+                <EditTextPreference
+                    android:key="@string/pref_rtlsdr_ip"
+                    android:dependency="@string/pref_rtlsdr_externalServer"
+                    android:title="@string/pref_rtlsdr_ip_title"
+                    android:dialogTitle="@string/pref_rtlsdr_ip_title"
+                    android:defaultValue="@string/pref_rtlsdr_ip_default" />
+                <EditTextPreference
+                    android:key="@string/pref_rtlsdr_port"
+                    android:dependency="@string/pref_rtlsdr_externalServer"
+                    android:title="@string/pref_rtlsdr_port_title"
+                    android:dialogTitle="@string/pref_rtlsdr_port_title"
+                    android:defaultValue="@string/pref_rtlsdr_port_default"
+                    android:inputType="number"/>
+                <EditTextPreference
+                    android:key="@string/pref_rtlsdr_frequencyCorrection"
+                    android:title="@string/pref_rtlsdr_frequencyCorrection_title"
+                    android:dialogTitle="@string/pref_rtlsdr_frequencyCorrection_title"
+                    android:defaultValue="@string/pref_rtlsdr_frequencyCorrection_default"
+                    android:inputType="number|numberSigned"/>
+                <EditTextPreference
+                    android:key="@string/pref_rtlsdr_frequencyOffset"
+                    android:title="@string/pref_rtlsdr_frequencyOffset_title"
+                    android:dialogTitle="@string/pref_rtlsdr_frequencyOffset_title"
+                    android:defaultValue="0"
+                    android:inputType="number|numberSigned"/>
+            </PreferenceCategory>
+        </PreferenceScreen>
+        <ListPreference
+            android:key="@string/pref_fftSize"
+            android:title="@string/pref_fftSize_title"
+            android:dialogTitle="@string/pref_fftSize_title"
+            android:entries="@array/pref_fftSize_entries"
+            android:entryValues="@array/pref_fftSize_values"
+            android:defaultValue="@string/pref_fftSize_default" />
+        <ListPreference
+            android:key="@string/pref_averaging"
+            android:title="@string/pref_averaging_title"
+            android:dialogTitle="@string/pref_averaging_title"
+            android:entries="@array/pref_averaging_entries"
+            android:entryValues="@array/pref_averaging_values"
+            android:defaultValue="@string/pref_averaging_default" />
+        <SwitchPreference
+            android:key="@string/pref_peakHold"
+            android:title="@string/pref_peakHold_title"
+            android:summaryOn="@string/pref_peakHold_summ_on"
+            android:summaryOff="@string/pref_peakHold_summ_off"
+            android:defaultValue="false" />
+        <SwitchPreference
+            android:key="@string/pref_autostart"
+            android:title="@string/pref_autostart_title"
+            android:summaryOn="@string/pref_autostart_summ_on"
+            android:summaryOff="@string/pref_autostart_summ_off"
+            android:defaultValue="false" />
     </PreferenceCategory>
-
     <PreferenceCategory
-        android:key="rtlsdr_category"
-        android:title="RTL-SDR">
-
+        android:key="@string/pref_view_category"
+        android:title="@string/pref_view_category_title">
         <ListPreference
-            android:defaultValue="240K"
-            android:dialogTitle="Sample rate"
-            android:entries="@array/rtlsdr_rate_array"
-            android:entryValues="@array/rtlsdr_rate_array"
-            android:key="rRATE"
-            android:title="Sample rate" />
-
+            android:key="@string/pref_colorMapType"
+            android:title="@string/pref_colorMapType_title"
+            android:dialogTitle="@string/pref_colorMapType_title"
+            android:entries="@array/pref_colorMapType_entries"
+            android:entryValues="@array/pref_colorMapType_values"
+            android:defaultValue="@string/pref_colorMapType_default" />
         <ListPreference
-            android:defaultValue="Auto"
-            android:dialogTitle="Tuner Gain"
-            android:entries="@array/tuner_array"
-            android:entryValues="@array/tuner_array"
-            android:key="rTUNER"
-            android:title="Tuner" />
-
-        <SwitchPreferenceCompat
-            android:key="rRTLAGC"
-            android:summary="RTL Automatic Gain Control"
-            android:defaultValue="False"
-            android:title="RTLAGC"/>
-
-        <SwitchPreferenceCompat
-            android:key="rBIASTEE"
-            android:summary="Enable Bias Tee"
-            android:defaultValue="False"
-            android:title="Bias Tee"/>
-
-        <EditTextPreference
-            android:key="rFREQOFFSET"
-            android:defaultValue="0"
-            android:summary="Frequency Correction"
-            android:title="Frequency Correction (PPM)"/>
-
-        <SwitchPreferenceCompat
-            android:key="rBANDWIDTH"
-            android:summary="Use device bandwidth filter"
-            android:defaultValue="False"
-            android:title="RTL bandwidth filter"/>
-
+            android:key="@string/pref_fftDrawingType"
+            android:title="@string/pref_fftDrawingType_title"
+            android:dialogTitle="@string/pref_fftDrawingType_title"
+            android:entries="@array/pref_fftDrawingType_entries"
+            android:entryValues="@array/pref_fftDrawingType_values"
+            android:defaultValue="@string/pref_fftDrawingType_default" />
+        <ListPreference
+            android:key="@string/pref_screenOrientation"
+            android:title="@string/pref_screenOrientation_title"
+            android:dialogTitle="@string/pref_screenOrientation_title"
+            android:entries="@array/pref_screenOrientation_entries"
+            android:entryValues="@array/pref_screenOrientation_values"
+            android:defaultValue="@string/pref_screenOrientation_default" />
+        <ListPreference
+            android:key="@string/pref_spectrumWaterfallRatio"
+            android:title="@string/pref_spectrumWaterfallRatio_title"
+            android:dialogTitle="@string/pref_spectrumWaterfallRatio_title"
+            android:entries="@array/pref_spectrumWaterfallRatio_entries"
+            android:entryValues="@array/pref_spectrumWaterfallRatio_values"
+            android:defaultValue="@string/pref_spectrumWaterfallRatio_default" />
+        <SwitchPreference
+            android:key="@string/pref_zoomDB"
+            android:title="@string/pref_zoomDB_title"
+            android:summaryOn="@string/pref_zoomDB_summ_on"
+            android:summaryOff="@string/pref_zoomDB_summ_off"
+            android:defaultValue="true" />
+        <SwitchPreference
+            android:key="@string/pref_scrollDB"
+            android:title="@string/pref_scrollDB_title"
+            android:summaryOn="@string/pref_scrollDB_summ_on"
+            android:summaryOff="@string/pref_scrollDB_summ_off"
+            android:defaultValue="true" />
+        <SwitchPreference
+            android:key="@string/pref_decoupledAxis"
+            android:title="@string/pref_decoupledAxis_title"
+            android:summaryOn="@string/pref_decoupledAxis_summ_on"
+            android:summaryOff="@string/pref_decoupledAxis_summ_off"
+            android:defaultValue="true" />
+        <ListPreference
+            android:key="@string/pref_fontSize"
+            android:title="@string/pref_fontSize_title"
+            android:dialogTitle="@string/pref_fontSize_title"
+            android:entries="@array/pref_fontSize_entries"
+            android:entryValues="@array/pref_fontSize_values"
+            android:defaultValue="@string/pref_fontSize_default" />
+        <SwitchPreference
+            android:key="@string/pref_relativeFrequencies"
+            android:title="@string/pref_relativeFrequencies_title"
+            android:summaryOn="@string/pref_relativeFrequencies_summ_on"
+            android:summaryOff="@string/pref_relativeFrequencies_summ_off"
+            android:defaultValue="false" />
     </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="rtltcp_category"
-        android:title="TCP input">
-
-        <EditTextPreference
-            android:key="tHOST"
-            android:defaultValue="localhost"
-            android:summary="IP address of RTL-TCP server"
-            android:singleLine="true"
-            android:title="Server IP"/>
-
-        <EditTextPreference
-            android:key="tPORT"
-            android:defaultValue="12345"
-            android:summary="Port of RTL-TCP server"
-            android:singleLine="true"
-            android:title="Server Port"/>
-
+    <PreferenceScreen
+        android:key="@string/pref_advancedSettings"
+        android:title="@string/pref_advancedSettings_title"
+        android:persistent="false">
+        <SwitchPreference
+            android:key="@string/pref_showDebugInformation"
+            android:title="@string/pref_showDebugInformation_title"
+            android:summaryOn="@string/pref_showDebugInformation_summ_on"
+            android:summaryOff="@string/pref_showDebugInformation_summ_off"
+            android:defaultValue="false" />
+        <SwitchPreference
+            android:key="@string/pref_dynamicFrameRate"
+            android:title="@string/pref_dynamicFrameRate_title"
+            android:summaryOn="@string/pref_dynamicFrameRate_summ_on"
+            android:summaryOff="@string/pref_dynamicFrameRate_summ_off"
+            android:defaultValue="false"
+            android:disableDependentsState="true" />
         <ListPreference
-            android:defaultValue="RTLTCP"
-            android:dialogTitle="Protocol"
-            android:entries="@array/tcp_protocol_array"
-            android:entryValues="@array/tcp_protocol_array"
-            android:key="tPROTOCOL"
-            android:title="Protocol" />
-
-        <ListPreference
-            android:defaultValue="240K"
-            android:dialogTitle="Sample rate"
-            android:entries="@array/rtltcp_rate_array"
-            android:entryValues="@array/rtltcp_rate_array"
-            android:key="tRATE"
-            android:title="Sample rate" />
-
-        <ListPreference
-            android:defaultValue="Auto"
-            android:dialogTitle="Tuner Gain"
-            android:entries="@array/tuner_array"
-            android:entryValues="@array/tuner_array"
-            android:key="tTUNER"
-            android:title="Tuner" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="spyserver_category"
-        android:title="SpyServer">
-
-        <ListPreference
-            android:defaultValue="96K"
-            android:dialogTitle="Sample rate"
-            android:entries="@array/spyserver_rate_array"
-            android:entryValues="@array/spyserver_rate_array"
-            android:key="sRATE"
-            android:title="Sample rate" />
-
+            android:key="@string/pref_frameRate"
+            android:dependency="@string/pref_dynamicFrameRate"
+            android:title="@string/pref_frameRate_title"
+            android:dialogTitle="@string/pref_frameRate_title"
+            android:entries="@array/pref_frameRate_entries"
+            android:entryValues="@array/pref_frameRate_values"
+            android:defaultValue="@string/pref_frameRate_default" />
+        <SwitchPreference
+            android:key="@string/pref_logging"
+            android:title="@string/pref_logging_title"
+            android:summaryOn="@string/pref_logging_summ_on"
+            android:summaryOff="@string/pref_logging_summ_off"
+            android:defaultValue="false" />
         <EditTextPreference
-            android:key="sHOST"
-            android:defaultValue="localhost"
-            android:summary="IP address of SpyServer"
-            android:singleLine="true"
-            android:title="Server IP"/>
-
-        <EditTextPreference
-            android:key="sPORT"
-            android:defaultValue="5555"
-            android:summary="Port of SpyServer"
-            android:singleLine="true"
-            android:title="Server Port"/>
-
-        <SeekBarPreference
-            android:key="sGAIN"
-            android:defaultValue="14"
-            android:max="25"
-            android:summary="Level"
-            android:dialogTitle="Gain"
-            android:title="Gain level"/>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="airspy_category"
-        android:title="Airspy R2/Mini">
-
-        <ListPreference
-            android:defaultValue="2500K"
-            android:dialogTitle="Preferred Sample rate"
-            android:entries="@array/airspy_rate_array"
-            android:entryValues="@array/airspy_rate_array"
-            android:key="mRATE"
-            android:title="Preferred Sample rate" />
-
-        <SeekBarPreference
-            android:key="mLINEARITY"
-            android:defaultValue="17"
-            android:max="21"
-            android:summary="Level"
-            android:dialogTitle="Linearity"
-            android:title="Linearity Level"/>
-
-        <SwitchPreferenceCompat
-            android:key="mBIASTEE"
-            android:defaultValue="False"
-            android:summary="Enable Bias Tee"
-            android:title="Bias Tee"/>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="airspyhf_category"
-        android:title="Airspy HF+">
-
-        <ListPreference
-            android:defaultValue="192K"
-            android:dialogTitle="Preferred Sample rate"
-            android:entries="@array/airspyhf_rate_array"
-            android:entryValues="@array/airspyhf_rate_array"
-            android:key="hRATE"
-            android:title="Preferred Sample rate" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="output_category"
-        android:title="Output">
-
-        <SwitchPreferenceCompat
-            android:key="u1SWITCH"
-            android:defaultValue="False"
-            android:title="UDP Server 1"/>
-
-        <EditTextPreference
-            android:key="u1HOST"
-            android:defaultValue="127.0.0.1"
-            android:dependency="u1SWITCH"
-            android:title="IP"/>
-
-        <EditTextPreference
-            android:key="u1PORT"
-            android:defaultValue="10101"
-            android:dependency="u1SWITCH"
-            android:title="Port"/>
-
-        <SwitchPreferenceCompat
-            android:key="u2SWITCH"
-            android:defaultValue="False"
-            android:title="UDP Server 2"/>
-
-        <EditTextPreference
-            android:key="u2HOST"
-            android:dependency="u2SWITCH"
-            android:defaultValue="localhost"
-
-            android:title="IP"/>
-
-        <EditTextPreference
-            android:key="u2PORT"
-            android:dependency="u2SWITCH"
-            android:defaultValue="4002"
-            android:title="Port"/>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="model_category"
-        android:title="Receiver">
-
-        <ListPreference
-            android:defaultValue="Default"
-            android:dialogTitle="Model"
-            android:entries="@array/model_type_array"
-            android:entryValues="@array/model_type_array"
-            android:key="oMODEL_TYPE"
-            android:title="Receiver decoding model" />
-
-        <ListPreference
-            android:defaultValue="Default"
-            android:dialogTitle="Frequency Correction"
-            android:entries="@array/cgf_array"
-            android:entryValues="@array/cgf_array"
-            android:key="oCGF_WIDE"
-            android:title="Applied frequency correction" />
-
-        <SwitchPreferenceCompat
-            android:key="oFP_DS"
-            android:summary="Enable Fixed Point downsampling"
-            android:defaultValue="False"
-            android:title="Fixed Point downsampling"/>
-
-    </PreferenceCategory>
-
+            android:key="@string/pref_logfile"
+            android:title="@string/pref_logfile_title"
+            android:dependency="@string/pref_logging"
+            android:defaultValue="@string/pref_logfile_default" />
+        <Preference
+            android:key="@string/pref_showLog"
+            android:title="@string/pref_showLog_title"
+            android:dependency="@string/pref_logging"
+            android:persistent="false" />
+    </PreferenceScreen>
 </PreferenceScreen>

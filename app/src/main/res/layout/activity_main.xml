@@ -1,59 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:id="@+id/fl_base"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fl_analyzerFrame"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.FlyPhone.AppBarOverlay">
+        android:layout_above="@+id/fl_controls"
+        tools:context=".MainActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.FlyPhone.PopupOverlay"
-            app:labelVisibilityMode="labeled"
-            app:menu="@menu/toolbar_menu"
-            />
-
-    </com.google.android.material.appbar.AppBarLayout>
+    </FrameLayout>
 
 
+    <LinearLayout
+        android:id="@+id/fl_controls"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#aa1a001a"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
 
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/appbar"
-            android:layout_above="@id/bottom_container" />
-
-        <LinearLayout
-            android:id="@+id/bottom_container"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btn_freqMines"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
+            android:text="-" />
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottombar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimaryVariant"
-                app:itemIconTint="?attr/itemTextColor"
-                app:itemTextColor="?attr/itemTextColor"
+        <TextView
+            android:id="@+id/txt_freq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"/>
 
-                app:labelVisibilityMode="labeled"
-                app:menu="@menu/bottom_menu" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/btn_freqPlus"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="+" />
 
-    </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/lbl_freqStep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text=" Step: " />
+
+        <Spinner
+            android:id="@+id/spn_freqStep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="11dp"/>
+
+        <Spinner
+            android:id="@+id/spn_freqBand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="11dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
