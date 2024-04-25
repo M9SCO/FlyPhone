@@ -1,8 +1,11 @@
+
 package ru.m9sco.flyphone;
+
 import java.text.DecimalFormat;
 
-public class Catcher {
-    public interface Callback {
+public class FlyPhoneCatcher {
+
+    public interface AisCallback {
 
         void onNMEA(final String line);
 
@@ -15,7 +18,7 @@ public class Catcher {
         void onMessage(final String line);
     }
 
-    private static Callback callback = null;
+    private static AisCallback callback = null;
 
     static native int InitNative(int port);
 
@@ -118,7 +121,7 @@ public class Catcher {
         Statistics.Init();
     }
 
-    public static void registerCallback(Callback m) {
+    public static void registerCallback(AisCallback m) {
         callback = m;
     }
 

@@ -42,6 +42,21 @@
 
             <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" android:resource="@xml/usb_device_filter" />
         </activity>
+
+        <activity
+            android:name=".Settings"
+            android:parentActivityName=".MainActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name=".Preferences" />
+                <category android:name="android.intent.category.PREFERENCE" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".FlyPhoneService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

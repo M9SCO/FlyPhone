@@ -1,6 +1,8 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="first_preferencescreen">
+    android:key="first_preferencescreen"
+
+    >
 
     <PreferenceCategory
         android:key="system_category"

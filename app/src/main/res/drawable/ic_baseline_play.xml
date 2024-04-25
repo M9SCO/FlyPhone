@@ -1,0 +1,18 @@
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportHeight="12"
+    android:viewportWidth="12">
+    <group android:scaleX="1.5" android:pivotX="6" android:pivotY="6">
+        <group android:rotation="00" android:pivotX="6" android:pivotY="6">
+            <group android:translateX="2">
+                <path
+                    android:name="play_path"
+                    android:fillColor="@color/white"
+                    android:pathData="M 2,2.5 L 2,9.5 L 7.5,6 Z"/>
+            </group>
+        </group>
+    </group>
+
+</vector>

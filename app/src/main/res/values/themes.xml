@@ -3,7 +3,13 @@
     <style name="Base.Theme.FlyPhone" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/primary</item>
+        <item name="itemTextColor">@color/black</item>
+
     </style>
 
     <style name="Theme.FlyPhone" parent="Base.Theme.FlyPhone" />
+    <style name="Theme.FlyPhone.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.FlyPhone.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

@@ -94,7 +94,7 @@ public class DeviceManager {
 
         int fd = 0;
 
-        Catcher.onStatus("Opening Device Connection\n");
+        FlyPhoneCatcher.onStatus("Opening Device Connection\n");
 
         if (devices.get(deviceIndex).type != DeviceType.RTLTCP && devices.get(deviceIndex).type != DeviceType.SPYSERVER) {
 
@@ -104,23 +104,23 @@ public class DeviceManager {
                 if(mUsbManager.hasPermission(devices.get(deviceIndex).getDevice())) {
                     UsbDeviceConnection conn = mUsbManager.openDevice(devices.get(deviceIndex).getDevice());
                     fd = conn.getFileDescriptor();
-                    Catcher.onStatus("Device SN: " + conn.getSerial() + ", FD: " + fd + "\n");
+                    FlyPhoneCatcher.onStatus("Device SN: " + conn.getSerial() + ", FD: " + fd + "\n");
                 }
                 else
                 {
-                    Catcher.onStatus("No permission to USB device\n");
+                    FlyPhoneCatcher.onStatus("No permission to USB device\n");
                     int f = 0;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                         f = PendingIntent.FLAG_MUTABLE;
 
                     PendingIntent permissionIntent = PendingIntent.getBroadcast(context, 0, new Intent(ACTION_USB_PERMISSION), f);
                     mUsbManager.requestPermission(devices.get(deviceIndex).getDevice(),permissionIntent);
-                    Catcher.onStatus("Permission requested\n");
+                    FlyPhoneCatcher.onStatus("Permission requested\n");
                     return -1;
 
                 }
             } catch (Exception e){
-                Catcher.onStatus(e.toString());
+                FlyPhoneCatcher.onStatus(e.toString());
                 return -1;
             }
         }
@@ -165,7 +165,7 @@ public class DeviceManager {
 
     public static void closeDevice() {
 
-        Catcher.onStatus("Closing connection\n");
+        FlyPhoneCatcher.onStatus("Closing connection\n");
 
         if (devices.get(deviceIndex).getType() != DeviceType.RTLTCP && devices.get(deviceIndex).getType() != DeviceType.SPYSERVER && usbDeviceConnection != null) {
             usbDeviceConnection.close();
@@ -234,7 +234,7 @@ public class DeviceManager {
             }
             else
             {
-                Catcher.onStatus("Warning: not supported USB devices connected - VID: " + device.getVendorId() + " PID " + device.getProductId()  + "\n");
+                FlyPhoneCatcher.onStatus("Warning: not supported USB devices connected - VID: " + device.getVendorId() + " PID " + device.getProductId()  + "\n");
             }
         }
 
@@ -265,8 +265,6 @@ public class DeviceManager {
         deviceType = dev.getType();
         deviceUID = dev.getUID();
 
-        Catcher.setDeviceDescription(dev.getDescription(),"","");
-
         onSourceChanged();
     }
     public static String[] getDeviceStrings() {
@@ -283,6 +281,12 @@ public class DeviceManager {
         }
 
         return devs;
+    }
+
+    public static Device getDevice(String name){
+        String[] list = name.split(":", 1);
+        int item_id = Integer.parseInt(list[0]) - 1;
+        return devices.get(item_id);
     }
 
     public static void registerUSBBroadCast() {
@@ -318,7 +322,7 @@ public class DeviceManager {
                 action_clean = "USB device granted extra permission. Try to start again.";
             }
 
-            Catcher.onStatus("Android: " + action_clean + ".\n");
+            FlyPhoneCatcher.onStatus("Android: " + action_clean + ".\n");
             refreshList(add);
         }
     };
