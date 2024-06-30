@@ -1,4 +1,4 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.ui;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import ru.m9sco.flyphone.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

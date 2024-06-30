@@ -1,4 +1,4 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.utils;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;

@@ -1,4 +1,4 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.signal;
 
 public abstract class IQConverter {
 	protected long frequency = 0;						// Baseband frequency of the converted samples (is put into the SamplePacket)

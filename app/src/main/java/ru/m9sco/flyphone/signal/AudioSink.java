@@ -1,4 +1,4 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.signal;
 
 import android.media.AudioFormat;
 import android.media.AudioManager;

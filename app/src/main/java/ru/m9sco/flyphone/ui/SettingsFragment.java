@@ -1,4 +1,4 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.ui;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
@@ -24,7 +24,10 @@ import androidx.core.content.ContextCompat;
 
 import java.io.File;
 
-import static ru.m9sco.flyphone.SettingsActivity.PERMISSION_REQUEST_LOGGING_WRITE_FILES;
+import static ru.m9sco.flyphone.ui.SettingsActivity.PERMISSION_REQUEST_LOGGING_WRITE_FILES;
+
+import ru.m9sco.flyphone.utils.FileUtils;
+import ru.m9sco.flyphone.R;
 
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener,
 																	Preference.OnPreferenceClickListener {

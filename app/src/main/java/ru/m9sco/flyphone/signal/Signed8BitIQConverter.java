@@ -1,4 +1,4 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.signal;
 
 public class Signed8BitIQConverter extends IQConverter {
 

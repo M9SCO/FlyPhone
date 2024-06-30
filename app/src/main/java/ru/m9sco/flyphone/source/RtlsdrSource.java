@@ -1,4 +1,4 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.source;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,6 +10,10 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
+
+import ru.m9sco.flyphone.signal.IQConverter;
+import ru.m9sco.flyphone.signal.SamplePacket;
+import ru.m9sco.flyphone.signal.Unsigned8BitIQConverter;
 
 public class RtlsdrSource implements IQSourceInterface {
 	public static final int RTLSDR_TUNER_UNKNOWN 	= 0;

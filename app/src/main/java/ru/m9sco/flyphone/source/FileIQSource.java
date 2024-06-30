@@ -1,4 +1,4 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.source;
 
 import android.content.Context;
 import android.util.Log;
@@ -7,6 +7,11 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+
+import ru.m9sco.flyphone.signal.IQConverter;
+import ru.m9sco.flyphone.signal.SamplePacket;
+import ru.m9sco.flyphone.signal.Signed8BitIQConverter;
+import ru.m9sco.flyphone.signal.Unsigned8BitIQConverter;
 
 public class FileIQSource implements IQSourceInterface {
 	private Callback callback = null;

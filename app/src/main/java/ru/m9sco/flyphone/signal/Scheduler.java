@@ -1,10 +1,12 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.signal;
 
 import android.util.Log;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
+
+import ru.m9sco.flyphone.source.IQSourceInterface;
 
 public class Scheduler extends Thread {
 	private IQSourceInterface source = null;	// Reference to the source of the IQ samples

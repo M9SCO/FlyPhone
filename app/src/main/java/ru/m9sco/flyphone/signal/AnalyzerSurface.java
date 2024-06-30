@@ -1,4 +1,4 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.signal;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,6 +14,9 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import ru.m9sco.flyphone.source.IQSourceInterface;
+import ru.m9sco.flyphone.source.RFControlInterface;
 
 public class AnalyzerSurface extends SurfaceView implements SurfaceHolder.Callback,
 															ScaleGestureDetector.OnScaleGestureListener,

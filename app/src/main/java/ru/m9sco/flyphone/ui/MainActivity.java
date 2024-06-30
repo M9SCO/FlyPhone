@@ -1,9 +1,8 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
@@ -54,6 +53,16 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import ru.m9sco.flyphone.signal.AnalyzerProcessingLoop;
+import ru.m9sco.flyphone.signal.AnalyzerSurface;
+import ru.m9sco.flyphone.signal.Demodulator;
+import ru.m9sco.flyphone.source.FileIQSource;
+import ru.m9sco.flyphone.source.IQSourceInterface;
+import ru.m9sco.flyphone.R;
+import ru.m9sco.flyphone.source.RFControlInterface;
+import ru.m9sco.flyphone.source.RtlsdrSource;
+import ru.m9sco.flyphone.signal.Scheduler;
 
 public class MainActivity extends AppCompatActivity implements IQSourceInterface.Callback, RFControlInterface {
 

@@ -1,6 +1,8 @@
-package ru.m9sco.flyphone;
+package ru.m9sco.flyphone.source;
 
 import android.content.Context;
+
+import ru.m9sco.flyphone.signal.SamplePacket;
 
 public interface IQSourceInterface {
 
